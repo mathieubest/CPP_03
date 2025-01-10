@@ -1,12 +1,12 @@
-#include "../includes/ScavTrap.hpp"
+#include "../includes/FragTrap.hpp"
 
 int main() {
-    ScavTrap a("Mista");
+    FragTrap a("Mista");
 
     a.attack("Broski");
     a.takeDamage(80);
     a.attack("Broski");
-    a.guardGate();
+    a.highFivesGuys();
     a.beRepaired(20);
     a.takeDamage(39);
     a.beRepaired(9);
