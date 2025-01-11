@@ -1,14 +1,15 @@
 #include "../includes/ScavTrap.hpp"
+#include "../includes/ColorCodes.hpp"
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
-    this->hitPoint = 100;
-    this->Energy = 50;
-    this->attackDamage = 20;
-    std::cout << "ScavTrap " << Name << " created." << std::endl;
+    this->_hitPoint = 100;
+    this->_Energy = 50;
+    this->_attackDamage = 20;
+    std::cout << "ScavTrap " << _Name << " created." << std::endl;
 }
 
 ScavTrap::~ScavTrap() {
-    std::cout << "ScavTrap " << Name << " destroyed." << std::endl;
+    std::cout << "ScavTrap " << _Name << " destroyed." << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target) {
