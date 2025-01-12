@@ -1,41 +1,49 @@
 #include "../includes/ScavTrap.hpp"
 #include "../includes/ColorCodes.hpp"
+#include "../includes/Emojis.hpp"
+
+ScavTrap::ScavTrap() : ClapTrap() {
+    _hitPoint = 100;
+    _Energy = 50;
+    _attackDamage = 20;
+    std::cout << "ScavTrap " << _Name << " created with default constructor" << std::endl;
+}
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
-    this->_hitPoint = 100;
-    this->_Energy = 50;
-    this->_attackDamage = 20;
-    std::cout << "ScavTrap " << _Name << " created." << std::endl;
+    _hitPoint = 100;
+    _Energy = 50;
+    _attackDamage = 20;
+    std::cout << "ScavTrap " << _Name << " created with name constructor" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
+    std::cout << "ScavTrap " << _Name << " created with copy constructor" << std::endl;
 }
 
 ScavTrap::~ScavTrap() {
-    std::cout << "ScavTrap " << _Name << " destroyed." << std::endl;
+    std::cout << "ScavTrap " << _Name << " destroyed" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
+    if (this != &other) {
+        ClapTrap::operator=(other);
+    }
+    std::cout << "ScavTrap " << _Name << " assigned from another ScavTrap" << std::endl;
+    return *this;
 }
 
 void ScavTrap::attack(const std::string& target) {
-    if (this->Energy <= 0 || this->hitPoint <= 0) {
-        std::cout << BOLD_RED << "ClapTrap " << Name << " can't attack... Out of energy or hit points... Needs to be repaired!" << RESET << std::endl;
+    if (_Energy > 0 && _hitPoint > 0) {
+        _Energy--;
+        std::cout << SWORD SWORD << " ScavTrap " << _Name << " attacks " << target << " causing " << _attackDamage << " points of damage!" << std::endl;
+    } else if (_Energy <= 0) {
+        std::cout << RED << "ScavTrap " << _Name << " can't attack... Out of energy." << RESET << std::endl;
     } else {
-        this->Energy--;
-        std::cout << "ScavTrap " << Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage! "<< BOLD_BLUE << "Energy level: " << this->Energy << RESET << std::endl;
-    }
-}
-
-void ScavTrap::takeDamage(unsigned int amount) {
-    this->hitPoint -= amount;
-    std::cout << "ScavTrap " << this->Name << " took " << amount << " damage! Health is now at " << this->hitPoint << std::endl;
-}
-
-void ScavTrap::beRepaired(unsigned int amount) {
-    if (this->Energy <= 0 || this->hitPoint <= 0) {
-        std::cout << BOLD_RED << "ScavTrap " << Name << " has no more energy or hit points to get repaired..." << RESET << std::endl;
-    } else {
-        this->hitPoint += amount;
-        this->Energy--;
-        std::cout << "ScavTrap " << Name << " got a reparation kit of " << amount << " hit points. Health is now at " << this->hitPoint << ". "<< BOLD_BLUE << "Energy level: " << this->Energy << RESET << std::endl; 
+        std::cout << RED << "ScavTrap " << _Name << " can't attack... No more health." << RESET << std::endl;
     }
 }
 
 void ScavTrap::guardGate() {
-    std::cout << "ScavTrap " << Name << " is now in Guard Gate mode." << std::endl;
+    // std::cout << SHINTO_SHRINE << " ScavTrap " << _Name << " is in Guard Gate mode." << std::endl;
+    std::cout << GUARD << " ScavTrap " << _Name << " is in Guard Gate mode." << std::endl;
 }
