@@ -5,6 +5,8 @@ int main() {
     std::cout << BOLD_BLUE << "-- Constructing --" << RESET << std::endl;
     ScavTrap def;
     ScavTrap a("Tata");
+    ScavTrap b("Boba");
+    b = a;
 
     std::cout << BOLD_BLUE << "-- Testing --" << RESET << std::endl;
     a.attack("Toto");
