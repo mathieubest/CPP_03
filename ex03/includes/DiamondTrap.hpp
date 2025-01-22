@@ -3,23 +3,27 @@
 #include "./FragTrap.hpp"
 #include "./ScavTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap {
-    private:
-        std::string Name;
+class DiamondTrap: public ScavTrap, public FragTrap
+{
+	private:
+		std::string _name;
+	public:
+	// Constructors
+		DiamondTrap();
+		DiamondTrap(const DiamondTrap &copy);
+		DiamondTrap(std::string name);
 
-    public:
-        // Constructor
-        DiamondTrap();
-        DiamondTrap(const std::string& name);
-        DiamondTrap(const DiamondTrap& other);
+	// Deconstructors
+		virtual ~DiamondTrap();
 
-        // Destructor
-        ~DiamondTrap();
+	// Overloaded Operators
+		DiamondTrap &operator=(const DiamondTrap &src);
 
-        // Public methods
-        void attack(const std::string& target);
-        void whoAmI();
+	// Public Methods
+		void attack(const std::string &target);
+		void whoAmI(void);
+	// Getter
 
-        // Overloaded operator
-        DiamondTrap& operator=(const DiamondTrap& other);
+	// Setter
+
 };
