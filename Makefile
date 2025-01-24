@@ -8,16 +8,16 @@ SUBDIRS = ex00 \
 			ex03
 
 all:
-	@echo "Use 'make fclean' to clean all subdirectories"
-	@echo "Use 'make push' to clean all subdirectories and push to GitHub"
+	@echo "Use 'make fclean' to clean all subdirectories" > /dev/null
+	@echo "Use 'make push' to clean all subdirectories and push to GitHub" > /dev/null
 
 fclean:
 	@for dir in $(SUBDIRS); do \
-	@echo "Cleaning $$dir..." > /dev/null; \
+	@echo "Cleaning $$dir..." > /dev/null;\
 		$(MAKE) -C $$dir fclean; \
 	done
 
 push: fclean
 	@git add .
-	@git commit -m "Cleaned and prepared for push"
+	@git commit -m "Cleaned and prepared for push" > /dev/null
 	@git push origin main
