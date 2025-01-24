@@ -8,9 +8,7 @@ SRCS_DIR = src/
 
 FILES = main.cpp \
 		ClapTrap.cpp \
-		DiamondTrap.cpp \
-		FragTrap.cpp \
-		ScavTrap.cpp
+		FragTrap.cpp
 
 SRCS = $(addprefix $(SRCS_DIR), $(FILES))
 OBJS = $(addprefix $(OBJS_DIR), $(FILES:.cpp=.o))

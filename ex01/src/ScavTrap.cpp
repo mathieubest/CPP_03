@@ -44,6 +44,5 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate() {
-    // std::cout << SHINTO_SHRINE << " ScavTrap " << _Name << " is in Guard Gate mode." << std::endl;
     std::cout << GUARD << " ScavTrap " << _Name << " is in Guard Gate mode." << std::endl;
 }

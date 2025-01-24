@@ -1,41 +1,49 @@
 #include "../includes/FragTrap.hpp"
+#include "../includes/ColorCodes.hpp"
+#include "../includes/Emojis.hpp"
+
+FragTrap::FragTrap() : ClapTrap() {
+    _hitPoint = 100;
+    _Energy = 100;
+    _attackDamage = 30;
+    std::cout << "FragTrap " << _Name << " created with default constructor." << std::endl;
+}
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
-    this->hitPoint = 100;
-    this->Energy = 100;
-    this->attackDamage = 30;
-    std::cout << "FragTrap " << Name << " created." << std::endl;
+    this->_hitPoint = 100;
+    this->_Energy = 100;
+    this->_attackDamage = 30;
+    std::cout << "FragTrap " << _Name << " created with ." << std::endl;
 }
 
-void FragTrap::attack(const std::string& target) {
-    if (this->Energy <= 0 || this->hitPoint <= 0) {
-        std::cout << BOLD_RED << "FragTrap " << Name << " can't attack... Out of energy or hit points... Needs to be repaired!" << RESET << std::endl;
-    } else {
-        this->Energy--;
-        std::cout << "FragTrap " << Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage! "<< BOLD_BLUE << "Energy level: " << this->Energy << RESET << std::endl;
-    }
-}
-
-void FragTrap::takeDamage(unsigned int amount) {
-    this->hitPoint -= amount;
-    std::cout << "FragTrap " << this->Name << " took " << amount << " damage! Health is now at " << this->hitPoint << std::endl;
-}
-
-void FragTrap::beRepaired(unsigned int amount) {
-    if (this->Energy <= 0 || this->hitPoint <= 0) {
-        std::cout << BOLD_RED << "FragTrap " << Name << " has no more energy or hit points to get repaired..." << RESET << std::endl;
-    } else {
-        this->hitPoint += amount;
-        this->Energy--;
-        std::cout << "FragTrap " << Name << " got a reparation kit of " << amount << " hit points. Health is now at " << this->hitPoint << ". "<< BOLD_BLUE << "Energy level: " << this->Energy << RESET << std::endl; 
-    }
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
+    std::cout << "FragTrap " << _Name << " created with copy constructor." << std::endl;
 }
 
 FragTrap::~FragTrap() {
-    std::cout << "FragTrap " << Name << " destroyed." << std::endl;
+    std::cout << "FragTrap " << _Name << " destroyed." << std::endl;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& other) {
+    if (this != &other) {
+        ClapTrap::operator=(other);
+    }
+    std::cout << "FragTrap " << _Name << " assigned from another FragTrap" << std::endl;
+    return *this;
+}
+
+void FragTrap::attack(const std::string& target) {
+    if (_Energy > 0 && _hitPoint > 0) {
+        _Energy--;
+        std::cout << SWORD SWORD << " ScavTrap " << _Name << " attacks " << target << " causing " << _attackDamage << " points of damage!" << std::endl;
+    } else if (_Energy <= 0) {
+        std::cout << RED << "ScavTrap " << _Name << " can't attack... Out of energy." << RESET << std::endl;
+    } else {
+        std::cout << RED << "ScavTrap " << _Name << " can't attack... No more health." << RESET << std::endl;
+    }
 }
 
 void FragTrap::highFivesGuys(void) {
-    std::cout << "FragTrap " << Name << " requested a Positive High Five Guys." << std::endl;
+    std::cout << "FragTrap " << _Name << " requested a Positive High Five Guys." << std::endl;
 }
 

@@ -4,11 +4,18 @@
 
 class FragTrap : public ClapTrap {
     public:
+        // Constructors
+        FragTrap();
         FragTrap(const std::string& name);
+        FragTrap(const FragTrap& other);
+
+        // Destructors
         ~FragTrap();
 
+        // Public methods
         void attack(const std::string& target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
         void highFivesGuys(void);
+
+        // Overloaded operator
+        FragTrap& operator=(const FragTrap& other);
 };

@@ -1,15 +1,29 @@
 #pragma once
 
-#include "./ClapTrap.hpp"
 #include "./FragTrap.hpp"
+#include "./ScavTrap.hpp"
 
-class DiamondTrap : public FragTrap {
-    private:
-        std::string Name;
+class DiamondTrap: public ScavTrap, public FragTrap
+{
+	private:
+		std::string _name;
+	public:
+	// Constructors
+		DiamondTrap();
+		DiamondTrap(const DiamondTrap &copy);
+		DiamondTrap(std::string name);
 
-    public:
-        DiamondTrap(const std::string& name);
-        ~DiamondTrap();
+	// Deconstructors
+		virtual ~DiamondTrap();
 
-        void whoAmI();
+	// Overloaded Operators
+		DiamondTrap &operator=(const DiamondTrap &src);
+
+	// Public Methods
+		void attack(const std::string &target);
+		void whoAmI(void);
+	// Getter
+
+	// Setter
+
 };
