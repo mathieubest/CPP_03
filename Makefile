@@ -13,7 +13,7 @@ all:
 
 fclean:
 	@for dir in $(SUBDIRS); do \
-	@echo "Cleaning $$dir..."; \
+	@echo "Cleaning $$dir..." > /dev/null; \
 		$(MAKE) -C $$dir fclean; \
 	done
 
