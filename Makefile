@@ -18,6 +18,6 @@ fclean:
 	done
 
 push: fclean
-	@git add .
+	@git add . > /dev/null
 	@git commit -m "Cleaned and prepared for push" > /dev/null
-	@git push origin main
+	@git push origin main > /dev/null
