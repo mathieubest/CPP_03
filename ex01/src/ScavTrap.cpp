@@ -13,7 +13,7 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     _hitPoint = 100;
     _Energy = 50;
     _attackDamage = 20;
-    std::cout << "ScavTrap " << _Name << " created with name constructor" << std::endl;
+    std::cout << "ScavTrap " << _Name << " created with parameterized constructor" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {

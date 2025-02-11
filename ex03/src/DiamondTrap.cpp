@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathieu <mathieu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mbest <mbest@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 11:22:15 by tblaase           #+#    #+#             */
-/*   Updated: 2025/01/22 16:55:04 by mathieu          ###   ########.fr       */
+/*   Updated: 2025/02/11 15:43:06 by mbest            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "DiamondTrap.hpp"
 #include "../includes/DiamondTrap.hpp"
 
 // Constructors
-DiamondTrap::DiamondTrap(): ClapTrap("defaultDT_clap_trap")
+DiamondTrap::DiamondTrap() : ClapTrap("defaultDT_clap_trap")
 {
 	this->_name = "defaultDT";
 	this->_hitPoint = FragTrap::_hitPoint;
@@ -29,7 +28,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap& copy): ClapTrap(copy), ScavTrap(copy
 	std::cout << "DiamondTrap Copy Constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_trap")
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_trap")
 {
 	this->_name = name;
 	this->_hitPoint = FragTrap::_hitPoint;

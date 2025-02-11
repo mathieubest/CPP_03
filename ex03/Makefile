@@ -1,7 +1,7 @@
 NAME = main
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJS_DIR = objs/
 SRCS_DIR = src/
